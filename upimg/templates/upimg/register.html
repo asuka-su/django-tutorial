@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <h1>Upload Images!</h1>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+            <a href="{% url 'home' %}">Home</a>
+        </form>
+    </div>
+</body>
+</html>

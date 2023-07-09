@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Home</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <h1>My Images</h1>
+        </div>
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    <div class="content">
+        <p>Check if you want to delete!</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {% for photo in photos %}
+        <div>
+            <input type="checkbox" name="images" value="{{ photo.id }}">
+            <label for="image_{{ image.id }}">{{ photo.title }}</label>
+        </div>
+        <div>
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+        </div>
+        {% endfor %}
+        <button type="submit">Delete Selected</button>
+    </form>
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="{% url 'user_home' username=user.username %}">My Page</a>
+        </div>
+    </div>
+</body>
+</html>

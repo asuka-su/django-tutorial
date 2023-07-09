@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Home</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <h1>My Images</h1>
+        </div>
+    <div class="content">
+        <p>Check your upload!</p>
+    </div>
+    {% for photo in photos %}
+    <div>
+        <h3>{{ photo.title }}</h3>
+        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+    </div>
+    {% endfor %}
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="{% url 'delete' username=user.username %}">I want to do some deletion!</a>
+        </div>
+        <div class="nav-left">
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+    </div>
+</body>
+</html>

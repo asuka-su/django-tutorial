@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <h1>Upload Images!</h1>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Login</h2>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+            <a href="{% url 'home' %}">Home</a>
+        </form>
+
+    </div>
+</body>
+</html>

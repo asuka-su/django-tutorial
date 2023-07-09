@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <h1>Upload Images!</h1>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Upload Here!</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+            <a href="{% url 'home' %}">Home</a>
+        </form>
+    </div>
+</body>
+</html>
